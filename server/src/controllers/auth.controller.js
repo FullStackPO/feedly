@@ -2,6 +2,8 @@ const userModel = require('../models/user.model')
 const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 
+//register controller
+
 async function registerController(req,res){
 
     const { name, contact, email, username, password, bio, profilePic } = req.body
@@ -48,4 +50,46 @@ async function registerController(req,res){
 
 }
 
-module.exports = registerController
+//login controller
+
+async function loginController(req,res){
+
+    const { username , password } = req.body
+
+    const loginUser = await userModel.findOne({ username })
+
+    if(!loginUser){
+        return res.status(404).json({
+            'message' : 'user not found'
+        })
+    }
+
+    const hash = crypto.createHash('sha256').update(password).digest('hex')
+
+    const isPassword = loginUser.password === hash
+
+    if(!isPassword){
+        return res.status(401).json({
+            'message' : 'Invalid password'
+        })
+    }
+
+    const token = jwt.sign({
+        id : loginUser._id
+    },
+    process.env.JWT_SECRET, { expiresIn : '1h' }
+    )
+
+    res.cookie('jwt_token', token)
+
+    res.status(200).json({
+        name : loginUser.name,
+        contact : loginUser.contact,
+        email : loginUser.email,
+        username : loginUser.username
+    })
+
+}
+
+
+module.exports = { registerController , loginController }
