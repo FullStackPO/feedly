@@ -54,9 +54,11 @@ async function registerController(req,res){
 
 async function loginController(req,res){
 
-    const { username , password } = req.body
+    const { email, username , password } = req.body
 
-    const loginUser = await userModel.findOne({ username })
+    const loginUser = await userModel.findOne({ 
+        $or: [{ username } , { email }] 
+    })
 
     if(!loginUser){
         return res.status(404).json({
@@ -86,7 +88,9 @@ async function loginController(req,res){
         name : loginUser.name,
         contact : loginUser.contact,
         email : loginUser.email,
-        username : loginUser.username
+        username : loginUser.username,
+        bio : loginUser.bio,
+        profilePic : loginUser.profilePic
     })
 
 }

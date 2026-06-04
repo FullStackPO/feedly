@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
 
     profilePic : {
         type : String,
-        default : ""
+        default : "https://ik.imagekit.io/tt0fjz3qv/avatar.jpg"
     }
 
 }, ({timestamps : true}))
