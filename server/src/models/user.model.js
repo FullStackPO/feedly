@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
         default : "https://ik.imagekit.io/tt0fjz3qv/avatar.jpg"
     }
 
-}, ({timestamps : true}))
+}, {timestamps : true})
 
 const userModel = mongoose.model('users', userSchema)
 
