@@ -49,4 +49,31 @@ async function postController(req,res){
     })
 }
 
-module.exports = postController
+async function getpostcontroller(req,res){
+
+    const token = req.cookies.jwt_token
+
+    let decode = null
+
+    try{
+        decode = jwt.verify(token, process.env.JWT_SECRET)
+    }
+    catch(err){
+        return res.status(401).json({
+            message : 'Invalid User'
+        })
+    }
+
+    const userId = decode.id
+
+    const posts = await postModel.find({
+        user : userId
+    })
+
+    res.status(200).json({
+        message : 'loading all posts',
+        posts
+    })
+}
+
+module.exports = { postController , getpostcontroller }
