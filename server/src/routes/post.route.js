@@ -11,6 +11,6 @@ postRouter.post('/', upload.single('image') , identifyUser , postController)
 
 postRouter.get('/' , identifyUser , getpostcontroller)
 
-postRouter.get('/details/:postId',identifyUser , getpostDetailscontroller)
+postRouter.get('/details/:postId', identifyUser , getpostDetailscontroller)
 
 module.exports = postRouter
