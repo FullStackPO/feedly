@@ -4,14 +4,12 @@ const followSchema = new mongoose.Schema({
 
     follower : {
         type : String,
-        trim : true,
-        required : [true, "follower is required."]
+        trim : true
     },
 
     followee : {
         type : String,
-        trim : true,
-        required : [true, "followee is required."]
+        trim : true
     }
 
 }, {timestamps : true})

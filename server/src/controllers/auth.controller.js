@@ -31,7 +31,8 @@ async function registerController(req,res){
     })
 
     const token = jwt.sign({
-        id : registerUser._id
+        id : registerUser._id,
+        username : registerUser.username
     },
     process.env.JWT_SECRET,
     {expiresIn : '1h'}
@@ -75,7 +76,8 @@ async function loginController(req,res){
     }
 
     const token = jwt.sign({
-        id : loginUser._id
+        id : loginUser._id,
+        username : loginUser.username
     },
     process.env.JWT_SECRET, { expiresIn : '1h' }
     )
