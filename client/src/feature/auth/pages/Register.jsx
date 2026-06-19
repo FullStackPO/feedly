@@ -1,16 +1,44 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../styles/form.scss'
+import axios from 'axios'
+import { Link } from 'react-router'
 
 const Register = () => {
+
+  const [name, setName] = useState('')
+  const [contact, setContact] = useState('')
+  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const submitHandler = async(e) => {
+      e.preventDefault()
+
+  const res = await axios.post('http://localhost:3000/api/auth/register', {
+      name,
+      contact,
+      email,
+      username,
+      password
+    },
+    {
+      withCredentials : true
+    })
+
+  console.log(res.data)
+  }
+
+
   return (
     <main>
       <div className="form-container">
-        <form>
+        <form onSubmit={submitHandler}>
           <div>
             <h1>Register</h1>
 
             <label htmlFor="name">Name</label>
             <input 
+            onInput={(e) => {setName(e.target.value)}}
             id='name'
             type="text"
             placeholder='Enter Full Name' 
@@ -19,6 +47,7 @@ const Register = () => {
 
             <label htmlFor="contact">Contact</label>
             <input 
+            onInput={(e) => {setContact(e.target.value)}}
             id='contact'
             type="text"
             placeholder='Enter Contact Number' 
@@ -27,6 +56,7 @@ const Register = () => {
 
             <label htmlFor="email">Email</label>
             <input 
+            onInput={(e) => {setEmail(e.target.value)}}
             id='email'
             type="text"
             placeholder='Enter email' 
@@ -35,6 +65,7 @@ const Register = () => {
 
             <label htmlFor="username">Username</label>
             <input 
+            onInput={(e) => {setUsername(e.target.value)}}
             id='username'
             type="text"
             placeholder='Enter username' 
@@ -43,29 +74,16 @@ const Register = () => {
 
             <label htmlFor="password">Password</label>
             <input 
+            onInput={(e) => {setPassword(e.target.value)}}
             id='password'
             type="password"
             placeholder='Enter password' 
             name='password'
             required />
 
-            <label htmlFor='bio'>bio</label>
-            <input 
-            id='bio'
-            type="text"
-            placeholder='Enter bio' 
-            name='bio'
-            />
-
-            <label htmlFor="pic">Profile Pic</label>
-            <input
-            id='pic'
-            type = 'text'
-            placeholder= 'Enter Image URL'
-            name='pic'
-            />
-
             <button>Submit</button>
+
+            <p>Have an account ? <Link to='/login'>Login</Link></p>
 
           </div>
         </form>
