@@ -10,6 +10,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-block: 40px;
 }
 
 .form-container{
@@ -37,6 +38,7 @@ form{
         0 0 20px rgba(255,255,255,0.1);
 
     transition: 0.3s ease;
+
 }
 
 form:hover{
