@@ -9,15 +9,7 @@ const Login = () => {
   const[password, setPassword] = useState('')
 
   const submitHandler = async(e) => {
-
     e.preventDefault()
-
-    const res = await axios.post('http://localhost:3000/api/auth/login', {
-      username,
-      password
-    })
-
-    console.log(res.data)
   }
 
   return (
