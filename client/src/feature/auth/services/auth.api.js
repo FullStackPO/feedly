@@ -1,4 +1,4 @@
-import axios from axios
+import axios from 'axios'
 
 const api = axios.create({
     baseURL : 'http://localhost:3000/api/auth',
@@ -45,8 +45,10 @@ export async function login(username, password){
 export async function getMe(){
 
     try {
+
         const res = await api.get('/get-me')
         return res.data
+
     } catch (error) {
         throw error
     }
