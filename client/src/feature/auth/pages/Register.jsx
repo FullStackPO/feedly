@@ -68,7 +68,7 @@ const Register = () => {
             name='password'
             required />
 
-            <button>Submit</button>
+            <button>Register</button>
 
             <p>Have an account ? <Link to='/login'>Login</Link></p>
 
