@@ -9,7 +9,7 @@ const Login = () => {
 
   const[username, setUsername] = useState('')
   const[password, setPassword] = useState('')
-  const { handleLogin, loading } = useAuth()
+  const { user, handleLogin, loading } = useAuth()
   const navigate = useNavigate()
 
   if(loading){
@@ -21,14 +21,8 @@ const Login = () => {
   const submitHandler = async(e) => {
     e.preventDefault()
 
-    handleLogin(username,password)
-    .then(res=>{
-      console.log(res)
-      navigate('/')
-    })
-    .catch((err) =>{
-      console.log(err)
-    })
+    let res = await handleLogin(username,password)
+    navigate('/')
 
   }
 
