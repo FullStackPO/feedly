@@ -95,4 +95,14 @@ async function likepostController(req,res){
 
 }
 
-module.exports = { postController , getpostcontroller , getpostDetailscontroller , likepostController}
+async function getFeedController(req,res){
+    const posts = await postModel.find().populate('user')
+
+    res.status(200).json({
+        message: 'All post fetched',
+        posts
+    })
+
+}
+
+module.exports = { postController , getpostcontroller , getpostDetailscontroller , likepostController , getFeedController}
