@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router'
 import Login from '../src/feature/auth/pages/Login'
 import Register from '../src/feature/auth/pages/Register'
+import Feed from './feature/post/pages/Feed'
 
 export const router = createBrowserRouter([
     {
@@ -13,6 +14,6 @@ export const router = createBrowserRouter([
     },
     {
         path : '/',
-        element : <h1>Hello User</h1>
+        element : <Feed />
     }
 ])

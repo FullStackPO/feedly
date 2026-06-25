@@ -1,0 +1,46 @@
+.feed-page{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .feed{
+        max-width: 350px;
+        width: 100%;
+
+        .posts{
+            width : 100%;
+
+            .post{
+                width:100%;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                .user{
+                    display: flex;
+                    gap :0.5rem;
+                    align-items: center;
+
+                    .img-wrapper{
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 2px solid rgba(255, 0, 0, 0);
+                        background: conic-gradient(from 45deg, orange, purple, orange);
+                    }
+
+                    img{
+                        width : 3rem;
+                        aspect-ratio: 1/1;
+                        border-radius: 50%;
+                    }
+                }
+
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
