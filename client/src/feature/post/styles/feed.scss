@@ -4,7 +4,7 @@
     align-items: flex-start;
 
     .feed{
-        max-width: 350px;
+        max-width: 300px;
         width: 100%;
 
         .posts{
@@ -14,7 +14,7 @@
                 width:100%;
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 5px;
 
                 .user{
                     display: flex;
@@ -34,6 +34,22 @@
                         width : 3rem;
                         aspect-ratio: 1/1;
                         border-radius: 50%;
+                    }
+                }
+
+                .icons{
+                    display: flex;
+                    justify-content: space-between;
+
+                    svg{
+                        width: 1.5rem;
+                        aspect-ratio: 1/1;
+                        color: white;
+                    }
+
+                    button{
+                        background-color: transparent;
+                        padding: 3.5px;
                     }
                 }
 

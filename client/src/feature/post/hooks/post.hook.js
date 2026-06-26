@@ -1,0 +1,19 @@
+import { getFeed } from "../services/post.api";
+import { useContext } from "react";
+import { PostContext } from "../Post.context";
+
+export const usePost = () => {
+
+    const context = useContext(PostContext)
+
+    const {loading, setLoading, feed, setFeed, post, setPost} = context
+
+    const handleFeed = async() =>{
+        setLoading(true)
+        const data = await getFeed()
+        setFeed(data)
+        setLoading(false)
+    }
+
+    return {loading, feed, post, handleFeed}
+}
