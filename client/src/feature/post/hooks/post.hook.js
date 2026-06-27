@@ -11,7 +11,7 @@ export const usePost = () => {
     const handleFeed = async() =>{
         setLoading(true)
         const data = await getFeed()
-        setFeed(data)
+        setFeed(data.posts)
         setLoading(false)
     }
 

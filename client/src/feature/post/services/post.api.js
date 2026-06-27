@@ -6,6 +6,6 @@ const api = axios.create({
 })
 
 export async function getFeed(){
-    const response = await api.get('/feed')
+    const response = await api.get('/api/post/feed')
     return response.data
 }

@@ -9,12 +9,17 @@
 
         .posts{
             width : 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
 
             .post{
                 width:100%;
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
+                background-color: rgb(62, 62, 62);
+                padding: 5px;
 
                 .user{
                     display: flex;
