@@ -19,7 +19,8 @@
                 flex-direction: column;
                 gap: 5px;
                 background-color: rgb(62, 62, 62);
-                padding: 5px;
+                padding-inline: 5px;
+                padding-block: 20px;
 
                 .user{
                     display: flex;
@@ -52,6 +53,11 @@
                         color: white;
                     }
 
+                    .like{
+                        color: red;
+
+                    }
+
                     button{
                         background-color: transparent;
                         padding: 3.5px;
@@ -60,6 +66,7 @@
 
                 img{
                     width: 100%;
+                    border-radius: 5px;
                 }
             }
         }
