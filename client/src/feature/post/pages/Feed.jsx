@@ -3,6 +3,7 @@ import Post from '../components/Post'
 import '../styles/feed.scss'
 import { usePost } from '../hooks/post.hook'
 import { useEffect } from 'react'
+import Navbar from '../../../shared/components/Navbar'
 
 const Feed = () => {
 
@@ -24,6 +25,7 @@ const Feed = () => {
 
   return (
     <main className='feed-page'>
+      <Navbar />
         <div className="feed">
             <div className="posts">
                 {feed.map((posts) => {

@@ -7,7 +7,7 @@
             <div className="img-wrapper">
             <img src={user.profilePic} alt=""/>
             </div>
-            <p>{user.username}</p>
+            <p><strong>{user.username}</strong></p>
         </div>
         <img src={post.image} alt=""/>
         <div className="icons">
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div className="bottom">
-            <p className="caption">{post.caption}</p>
+            <p className="caption"><strong>{user.username}</strong>&nbsp;&nbsp;{post.caption}</p>
         </div>
     </div>
    )
