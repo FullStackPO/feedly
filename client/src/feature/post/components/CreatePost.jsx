@@ -1,12 +1,30 @@
 import React, {useState, useRef} from 'react'
+import { usePost } from '../hooks/post.hook'
+import { useNavigate } from 'react-router'
 
 const CreatePost = ({user}) => {
+
+  const navigate = useNavigate()
 
   const [caption, setCaption] = useState('')
   const postImageRef = useRef()
 
+  const { loading, handleCreatePost } = usePost()
+
   const submitHandler = (e) =>{
     e.preventDefault();
+
+    const file = postImageRef.current.files[0]
+    handleCreatePost(file, caption)
+    navigate('/')
+  }
+
+  if(loading){
+    return(
+      <main>
+        <h1>Uploading...</h1>
+      </main>
+    )
   }
 
   return (
@@ -25,7 +43,8 @@ const CreatePost = ({user}) => {
 
                 <label htmlFor="caption">Caption</label>
                 <input 
-                onInput={(e)=>{setCaption(e.target.value)}}
+                value={caption}
+                onChange={(e)=>{setCaption(e.target.value)}}
                 id='caption'
                 type="text"
                 placeholder='Enter Caption'
