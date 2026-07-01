@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react'
 import { usePost } from '../hooks/post.hook'
 import { useNavigate } from 'react-router'
+import "../styles/createpost.scss"
 
 const CreatePost = ({user}) => {
 
@@ -31,7 +32,10 @@ const CreatePost = ({user}) => {
     <main>
         <form onSubmit={submitHandler}>  
             <div>
-                <h1>Create Post</h1>
+                <div className='cpn'>
+                  <button onClick={()=>{navigate('/')}}>Back</button>
+                  <h1>Create Post</h1>
+                </div>
 
                 <label htmlFor="postImage">Select Image</label>
                 <input 
